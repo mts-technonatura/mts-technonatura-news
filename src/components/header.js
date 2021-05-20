@@ -173,9 +173,9 @@ const CenterHeader = ({ theme, townName, townTagLine }) => {
           </HeaderBrand>
         </Link>
         <HeaderRightZone>
-          <Link href="#" className="it-search-wrapper text-white text-decoration-none">
+          <div href="#" className="it-search-wrapper text-white text-decoration-none" style={{cursor: 'pointer'}}>
               <div className="it-search-wrapper">
-                <span class="d-none d-md-block">Search Engine</span>
+                <span class="d-none d-md-block text-white">Search Engine</span>
                 <a class="search-link rounded-icon" ariaLabel="Search Engine">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="icon m-0">
                     <path d="M21.9 21.1L16 15.3a8.3 8.3 0 002-5.3 8 8 0 10-8 8 8.3 8.3 0 005.3-2l5.8 5.9zM10 17a7 7 0 117-7 7 7 0 01-7 7z"/>
@@ -183,7 +183,7 @@ const CenterHeader = ({ theme, townName, townTagLine }) => {
                   </svg>
                 </a>
               </div>
-          </Link>
+          </div>
         </HeaderRightZone>
       </HeaderContent>
     </Header>
