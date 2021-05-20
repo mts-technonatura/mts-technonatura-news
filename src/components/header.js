@@ -173,7 +173,9 @@ const CenterHeader = ({ theme, townName, townTagLine }) => {
           </HeaderBrand>
         </Link>
         <HeaderRightZone>
-          <HeaderSearch label="Search Engine" iconName="it-search" />
+          <Link href="#" className="it-search-wrapper text-white text-decoration-none">
+            <HeaderSearch label="Search Engine" iconName="it-search" />
+          </Link>
         </HeaderRightZone>
       </HeaderContent>
     </Header>
