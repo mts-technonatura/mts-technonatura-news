@@ -139,7 +139,7 @@ const Footer = ({ town }) => (
             </Link>
           </li>
         </ul>
-        <p className="pb-5 mb-0 text-secondary">
+        <p className="pb-5 pl-3 pr-3 mb-0 text-secondary">
           (c) 2021 Aldhanekaa, this website built with gatsbyjs, reactjs, and
           use{" "}
           <a

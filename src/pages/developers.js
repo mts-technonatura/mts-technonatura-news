@@ -21,8 +21,8 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import { MdForum } from "react-icons/md";
 import { FaGithub, FaDiscord } from "react-icons/fa";
-const Documenti = ({ location }) => (
-  <Layout location={location}>
+const Documenti = props => (
+  <>
     <SEO title="Documenti e Dati" />
     <main>
       <Container tag="section" id="briciole" className="px-4 my-4">
@@ -31,7 +31,7 @@ const Documenti = ({ location }) => (
             <nav aria-label="breadcrumb" className="breadcrumb-container">
               <Breadcrumb>
                 <BreadcrumbItem>
-                  <Link to="/homepage">Home</Link>
+                  <Link to="/homepage">Home </Link>
                   <span className="separator">/</span>
                 </BreadcrumbItem>
                 <BreadcrumbItem aria-current="page" active>
@@ -63,7 +63,7 @@ const Documenti = ({ location }) => (
                 </span>
               </form>
             </div>
-            <div id="filtri-ricerca-amministrazione">
+            {/* <div id="filtri-ricerca-amministrazione">
               <h6 className="small">Filtri</h6>
               <div className="chip chip-lg">
                 <span className="chip-label">Tutto</span>
@@ -78,19 +78,15 @@ const Documenti = ({ location }) => (
                   <span>Aggiungi filtro</span>
                 </button>
               </div>
-            </div>
+            </div> */}
           </Col>
           <Col lg={{ size: 4, offset: 1 }} className="pt-5 pt-lg-2">
             <LinkList>
               {[
-                "Tutti i documenti",
-                "Documenti albo pretorio",
-                "Modulistica",
-                "Documenti funzionamento interno",
-                "Normative",
-                "Documenti attività politica",
-                "Rapporti (tecnici)",
-                "Dataset",
+                "Explore the news",
+                "MTs TechnoNatura Server",
+                "API",
+                "MTs TechnoNatura Dashboard",
               ].map((label, i) => {
                 if (i === 0) {
                   return (
@@ -338,7 +334,7 @@ const Documenti = ({ location }) => (
         </section>
       </section>
     </main>
-  </Layout>
+  </>
 );
 
 export default Documenti;

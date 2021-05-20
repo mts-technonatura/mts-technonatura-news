@@ -22,7 +22,7 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 
 const Servizi = ({ location }) => (
-  <Layout location={location}>
+  <>
     <SEO title="Servizi" />
     <main>
       <Container tag="section" id="briciole" className="px-4 my-4">
@@ -269,7 +269,7 @@ const Servizi = ({ location }) => (
         </div>
       </section>
     </main>
-  </Layout>
+  </>
 );
 
 export default Servizi;

@@ -1,3 +1,4 @@
+// --jsx
 import React from "react";
 import { Link } from "gatsby";
 import {
@@ -10,11 +11,13 @@ import {
   LinkList,
 } from "design-react-kit";
 
-import Layout from "../components/layout";
+import SearchCTA from "../components/cta-search";
+import Section2 from "../components/home/section2";
+
 import SEO from "../components/seo";
 
-const IndexPage = ({ location }) => (
-  <Layout location={location}>
+const IndexPage = ({ location }: { location: string }) => (
+  <>
     <SEO title="Homepage" />
     <section id="head-section">
       <div className="container">
@@ -58,7 +61,9 @@ const IndexPage = ({ location }) => (
         </div>
       </div>
     </section>
-  </Layout>
+    <Section2 />
+    <SearchCTA />
+  </>
 );
 
 export default IndexPage;

@@ -21,8 +21,8 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 
 const Novita = ({ location }) => (
-  <Layout location={location}>
-    <SEO title="Novità" />
+  <>
+    <SEO title="MTs TechnoNatura Events" />
     <main>
       <Container tag="section" id="briciole" className="px-4 my-4">
         <Row>
@@ -34,7 +34,7 @@ const Novita = ({ location }) => (
                   <span className="separator">/</span>
                 </BreadcrumbItem>
                 <BreadcrumbItem aria-current="page" active>
-                  Novità
+                  Events
                 </BreadcrumbItem>
               </Breadcrumb>
             </nav>
@@ -44,25 +44,25 @@ const Novita = ({ location }) => (
       <Container tag="section" id="intro" className="px-4 my-4">
         <Row>
           <Col lg={7} className="px-lg-4 py-lg-2">
-            <h1>Novità</h1>
+            <h1>Event News</h1>
             <p>
               Donec in consequat nunc. Duis semper fermentum lacus, ac
               condimentum justo auctor a. Nam erat erat, porta vel pharetra in,
               ullamcorper vel turpis.
             </p>
             <div className="form-group mt-5">
-              <form>
+              <div>
                 <Input
                   id="ricerca-novita"
                   type="search"
-                  label="Cerca contenuti tra le novità"
+                  label="What event you are looking for?"
                 />
                 <span aria-hidden="true" className="autocomplete-icon">
                   <Icon icon="it-search" size="sm" />
                 </span>
-              </form>
+              </div>
             </div>
-            <div id="filtri-ricerca-amministrazione">
+            {/* <div id="filtri-ricerca-amministrazione">
               <h6 className="small">Filtri</h6>
               <div className="chip chip-lg">
                 <span className="chip-label">Tutto</span>
@@ -77,7 +77,7 @@ const Novita = ({ location }) => (
                   <span>Aggiungi filtro</span>
                 </button>
               </div>
-            </div>
+            </div> */}
           </Col>
           <Col lg={{ size: 4, offset: 1 }} className="pt-5 pt-lg-2">
             <LinkList>
@@ -222,29 +222,9 @@ const Novita = ({ location }) => (
             </Row>
           </Container>
         </div>
-        <div className="py-5">
-          <Container className="px-4">
-            <Row>
-              <Col>
-                <h3 className="mb-4">Argomenti</h3>
-              </Col>
-            </Row>
-            <Row>
-              <div className="col text-center">
-                {["Cultura", "Muoversi", "Argomento di esempio"].map(label => (
-                  <Link to="#" key={label}>
-                    <span className="chip chip-simple chip-primary">
-                      <span className="chip-label">{label}</span>
-                    </span>
-                  </Link>
-                ))}
-              </div>
-            </Row>
-          </Container>
-        </div>
       </section>
     </main>
-  </Layout>
+  </>
 );
 
 export default Novita;

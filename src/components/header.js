@@ -121,10 +121,13 @@ const SlimHeader = ({ theme }) => {
               {/* <LinkListItem href="#" tag="a">
                 Main Website
               </LinkListItem> */}
-              <LinkListItem href="#" tag="a">
+              <LinkListItem
+                href="https://forum.mts-technonatura.vercel.app/"
+                tag="a"
+              >
                 Forum
               </LinkListItem>
-              <LinkListItem href="#" tag="a">
+              <LinkListItem href="https://mts-tn.vercel.app/app" tag="a">
                 Dashboard
               </LinkListItem>
             </LinkList>
@@ -173,16 +176,24 @@ const CenterHeader = ({ theme, townName, townTagLine }) => {
           </HeaderBrand>
         </Link>
         <HeaderRightZone>
-          <div href="#" className="it-search-wrapper text-white text-decoration-none" style={{cursor: 'pointer'}}>
-              <div className="it-search-wrapper">
-                <span class="d-none d-md-block text-white">Search Engine</span>
-                <a class="search-link rounded-icon" ariaLabel="Search Engine">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="icon m-0">
-                    <path d="M21.9 21.1L16 15.3a8.3 8.3 0 002-5.3 8 8 0 10-8 8 8.3 8.3 0 005.3-2l5.8 5.9zM10 17a7 7 0 117-7 7 7 0 01-7 7z"/>
-                    <path fill="none" d="M0 0h24v24H0z"/>
-                  </svg>
-                </a>
-              </div>
+          <div
+            href="#"
+            className="it-search-wrapper text-white text-decoration-none"
+            style={{ cursor: "pointer" }}
+          >
+            <div className="it-search-wrapper">
+              <span class="d-none d-md-block text-white">Search Engine</span>
+              <a class="search-link rounded-icon" ariaLabel="Search Engine">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  className="icon m-0"
+                >
+                  <path d="M21.9 21.1L16 15.3a8.3 8.3 0 002-5.3 8 8 0 10-8 8 8.3 8.3 0 005.3-2l5.8 5.9zM10 17a7 7 0 117-7 7 7 0 01-7 7z" />
+                  <path fill="none" d="M0 0h24v24H0z" />
+                </svg>
+              </a>
+            </div>
           </div>
         </HeaderRightZone>
       </HeaderContent>
@@ -213,31 +224,36 @@ const NavHeader = ({ active, theme }) => {
             <Nav navbar>
               {[
                 {
-                  link: "",
+                  link: "/",
                   "en-uk": "Home",
                   bahasa: "Utama",
                 },
                 {
-                  link: "events",
+                  link: "/events",
                   "en-uk": "events",
                   bahasa: "acara",
                 },
                 {
-                  link: "developers",
+                  link: "/developers",
                   "en-uk": "developers",
                   bahasa: "pengembang",
                 },
                 {
-                  link: "categories",
+                  link: "/categories",
                   "en-uk": "categories",
                   bahasa: "Kategori",
                 },
+                {
+                  link: "/news",
+                  "en-uk": "News",
+                  bahasa: "Berita",
+                },
               ].map(label => {
                 const isActive = label.link === active;
-               console.log(label.link, active);
+                console.log(label.link, active);
                 return (
                   <NavItem active={isActive} key={label}>
-                    <NavLink to={`/${label.link}`} active={isActive} tag={Link}>
+                    <NavLink to={`${label.link}`} active={isActive} tag={Link}>
                       <span>
                         {capitalize(getSectionFullName(label["en-uk"]))}
                       </span>
@@ -272,6 +288,7 @@ const NavHeader = ({ active, theme }) => {
 };
 
 const CompleteHeader = ({ location, sticky, theme, type, town }) => {
+  console.log(location);
   const SlimTag = type === "default" ? SlimHeader : SlimHeaderFullResponsive;
 
   const page = getSectionFromLocation(location);
@@ -281,7 +298,7 @@ const CompleteHeader = ({ location, sticky, theme, type, town }) => {
       <SlimTag theme={theme} />
       <div className="it-nav-wrapper">
         <CenterHeader theme={theme} townName={name} townTagLine={tagLine} />
-        <NavHeader theme={theme} active={page} />
+        <NavHeader theme={theme} active={location.pathname} />
       </div>
     </Headers>
   );
