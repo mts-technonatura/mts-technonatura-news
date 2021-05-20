@@ -29,6 +29,7 @@ import {
 } from "design-react-kit";
 
 function capitalize(str) {
+  console.log(str);
   return `${str[0].toUpperCase()}${str.slice(1)}`;
 }
 
@@ -64,11 +65,13 @@ const SlimHeaderFullResponsive = ({ theme }) => {
   return (
     <Header type="slim" theme={theme}>
       <HeaderContent>
-        <HeaderBrand responsive>Ente appartenenza/Owner</HeaderBrand>
+        <HeaderBrand responsive href="https://mts-tn.vercel.app">
+          Main Website
+        </HeaderBrand>
         <HeaderRightZone>
           <UncontrolledDropdown nav tag="div">
             <DropdownToggle nav caret>
-              ITA
+              EN-UK
               <Icon icon="it-expand" />
             </DropdownToggle>
             <DropdownMenu>
@@ -76,10 +79,10 @@ const SlimHeaderFullResponsive = ({ theme }) => {
                 <Col size="12">
                   <LinkList>
                     <LinkListItem tag={DropdownItem} href="#">
-                      <span>ITA</span>
+                      <span>EN-UK</span>
                     </LinkListItem>
                     <LinkListItem tag={DropdownItem} href="#">
-                      <span>ENG</span>
+                      <span>BAHASA</span>
                     </LinkListItem>
                   </LinkList>
                 </Col>
@@ -105,36 +108,32 @@ const SlimHeader = ({ theme }) => {
   return (
     <Header type="slim" theme={theme}>
       <HeaderContent>
-        <HeaderBrand tag={Link} to='/'>
-          Ente appartenenza/Owner
-        </HeaderBrand>
+        <Link to="https://mts-tn.vercel.app" className="d-none d-lg-block">
+          <HeaderBrand>Main Website</HeaderBrand>
+        </Link>
         <HeaderLinkZone>
           <HeaderToggler onClick={() => toggleDropdown(!isOpen)}>
-            <span>Ente appartenenza/Owner</span>
+            <span>Other Websites</span>
             <Icon icon="it-expand" />
           </HeaderToggler>
           <Collapse isOpen={isOpen} header>
             <LinkList tag="div">
-              <LinkListItem
-                href="#"
-                tag="a"
-              >
-                Link 1
-          </LinkListItem>
-              <LinkListItem
-                active
-                href="#"
-                tag="a"
-              >
-                Link 2 Active
-          </LinkListItem>
+              {/* <LinkListItem href="#" tag="a">
+                Main Website
+              </LinkListItem> */}
+              <LinkListItem href="#" tag="a">
+                Forum
+              </LinkListItem>
+              <LinkListItem href="#" tag="a">
+                Dashboard
+              </LinkListItem>
             </LinkList>
           </Collapse>
         </HeaderLinkZone>
         <HeaderRightZone>
           <UncontrolledDropdown nav tag="div">
             <DropdownToggle nav caret>
-              ITA
+              EN-UK
               <Icon icon="it-expand" />
             </DropdownToggle>
             <DropdownMenu>
@@ -142,21 +141,21 @@ const SlimHeader = ({ theme }) => {
                 <Col size="12">
                   <LinkList>
                     <LinkListItem tag={DropdownItem} href="#">
-                      <span>ITA</span>
+                      <span>EN-UK</span>
                     </LinkListItem>
                     <LinkListItem tag={DropdownItem} href="#">
-                      <span>ENG</span>
+                      <span>BAHASA</span>
                     </LinkListItem>
                   </LinkList>
                 </Col>
               </Row>
             </DropdownMenu>
           </UncontrolledDropdown>
-          <div className="it-access-top-wrapper">
+          {/* <div className="it-access-top-wrapper">
             <Button color="primary" size="sm">
-              Accedi
+              Login
             </Button>
-          </div>
+          </div> */}
         </HeaderRightZone>
       </HeaderContent>
     </Header>
@@ -167,31 +166,14 @@ const CenterHeader = ({ theme, townName, townTagLine }) => {
   return (
     <Header type="center" theme={theme}>
       <HeaderContent>
-        <HeaderBrand iconName="it-pa" tag={Link} to="/">
-          <h2>{townName}</h2>
-          <h3>{townTagLine}</h3>
-        </HeaderBrand>
+        <Link to="/" className="text-decoration-none">
+          <HeaderBrand>
+            <h2>{townName}</h2>
+            <h3>{townTagLine}</h3>
+          </HeaderBrand>
+        </Link>
         <HeaderRightZone>
-          <HeaderSocialsZone label="Seguici su">
-            <ul>
-              <li>
-                <Link to="#" aria-label="Facebook" target="_blank">
-                  <Icon icon="it-facebook" />
-                </Link>
-              </li>
-              <li>
-                <Link to="#" aria-label="Github" target="_blank">
-                  <Icon icon="it-github" />
-                </Link>
-              </li>
-              <li>
-                <Link to="#" aria-label="Twitter" target="_blank">
-                  <Icon icon="it-twitter" />
-                </Link>
-              </li>
-            </ul>
-          </HeaderSocialsZone>
-          <HeaderSearch label="Cerca" iconName="it-search" />
+          <HeaderSearch label="Search Engine" iconName="it-search" />
         </HeaderRightZone>
       </HeaderContent>
     </Header>
@@ -219,21 +201,37 @@ const NavHeader = ({ active, theme }) => {
         >
           <div className="menu-wrapper">
             <Nav navbar>
-              {["amministrazione", "novita", "servizi", "documenti"].map(
-                label => {
-                  const isActive = label === active;
-                  return (
-                    <NavItem active={isActive} key={label}>
-                      <NavLink to={`/${label}`} active={isActive} tag={Link}>
-                        <span>{capitalize(getSectionFullName(label))}</span>
-                        {isActive && <span className="sr-only">current</span>}
-                      </NavLink>
-                    </NavItem>
-                  );
-                }
-              )}
+              {[
+                {
+                  link: "events",
+                  "en-uk": "events",
+                  bahasa: "acara",
+                },
+                {
+                  link: "developers",
+                  "en-uk": "developers",
+                  bahasa: "pengembang",
+                },
+                {
+                  link: "categories",
+                  "en-uk": "categories",
+                  bahasa: "Kategori",
+                },
+              ].map(label => {
+                const isActive = label.link === active;
+                return (
+                  <NavItem active={isActive} key={label}>
+                    <NavLink to={`/${label.link}`} active={isActive} tag={Link}>
+                      <span>
+                        {capitalize(getSectionFullName(label["en-uk"]))}
+                      </span>
+                      {isActive && <span className="sr-only">current</span>}
+                    </NavLink>
+                  </NavItem>
+                );
+              })}
             </Nav>
-            <Nav navbar className="navbar-secondary">
+            {/* <Nav navbar className="navbar-secondary">
               {[
                 { label: "Argomento 1" },
                 { label: "Argomento 2" },
@@ -249,7 +247,7 @@ const NavHeader = ({ active, theme }) => {
                   </NavItem>
                 );
               })}
-            </Nav>
+            </Nav> */}
           </div>
         </Collapse>
       </HeaderContent>

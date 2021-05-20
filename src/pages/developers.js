@@ -19,7 +19,8 @@ import {
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-
+import { MdForum } from "react-icons/md";
+import { FaGithub, FaDiscord } from "react-icons/fa";
 const Documenti = ({ location }) => (
   <Layout location={location}>
     <SEO title="Documenti e Dati" />
@@ -34,7 +35,7 @@ const Documenti = ({ location }) => (
                   <span className="separator">/</span>
                 </BreadcrumbItem>
                 <BreadcrumbItem aria-current="page" active>
-                  Documenti e Dati
+                  Developers
                 </BreadcrumbItem>
               </Breadcrumb>
             </nav>
@@ -44,7 +45,7 @@ const Documenti = ({ location }) => (
       <Container tag="section" id="intro" className="px-4 my-4">
         <Row>
           <Col lg={7} className="px-lg-4 py-lg-2">
-            <h1>Documenti e Dati</h1>
+            <h1>Developers News</h1>
             <p>
               Donec in consequat nunc. Duis semper fermentum lacus, ac
               condimentum justo auctor a. Nam erat erat, porta vel pharetra in,
@@ -55,7 +56,7 @@ const Documenti = ({ location }) => (
                 <Input
                   id="ricerca-servizi"
                   type="search"
-                  label='Cerca contenuti in "Servizi"'
+                  label="What are you looking for?"
                 />
                 <span aria-hidden="true" className="autocomplete-icon">
                   <Icon icon="it-search" size="sm" />
@@ -168,18 +169,27 @@ const Documenti = ({ location }) => (
       <section>
         <div className="py-5">
           <Container className="px-4">
+            <div class="text-white d-flex align-items-baseline titlewrapper mb-3 mb-md-5">
+              <h3 className="mb-4 text-dark">Open Source Projects</h3>
+
+              <a
+                href="https://developers.mts-technonatura.vercel.app"
+                target="_blank"
+                class="ml-auto more"
+              >
+                See more &rarr;
+              </a>
+            </div>
             <Row>
-              <Col>
-                <h3 className="mb-4">Tutti i Servizi</h3>
-              </Col>
-            </Row>
-            <Row>
-              {[{ title: "Documenti" }, { title: "Dati" }].map(({ title }) => {
+              {[
+                { title: "MTs TechnoNatura Website" },
+                { title: "MTs TechnoNatura Server" },
+              ].map(({ title }) => {
                 return (
                   <Col size="12" sm={6} lg={4} key={title}>
                     <Card>
                       <CardBody>
-                        <CardTitle tag="h5" className="big-heading">
+                        <CardTitle tag="h5" className="text-dark big-heading">
                           {title}
                         </CardTitle>
                         <CardText>
@@ -189,7 +199,7 @@ const Documenti = ({ location }) => (
                         </CardText>
                         <CardReadMore
                           icon="it-arrow-right"
-                          text="Leggi di più"
+                          text="Learn more"
                           to="#"
                           tag={Link}
                         />
@@ -201,26 +211,131 @@ const Documenti = ({ location }) => (
             </Row>
           </Container>
         </div>
-        <div className="py-5">
-          <Container className="px-4">
-            <Row>
-              <Col>
-                <h3 className="mb-4">Argomenti</h3>
-              </Col>
-            </Row>
-            <Row>
-              <div className="col text-center">
-                {["Cultura", "Muoversi", "Argomento di esempio"].map(label => (
-                  <Link to="#" key={label}>
-                    <span className="chip chip-simple chip-primary">
-                      <span className="chip-label">{label}</span>
-                    </span>
-                  </Link>
-                ))}
+        <section
+          class="home-discuss"
+          style={{
+            backgroundColor: "#2079d4",
+            backgroundPositionX: "center",
+            backgroundPositionY: "center",
+            backgroundRepeat: "no-repeat",
+            padding: "2rem 0",
+          }}
+        >
+          <div class="container">
+            <div class="text-white d-flex align-items-baseline titlewrapper mb-3 mb-md-5 border-bottom">
+              <h2>Participate</h2>
+            </div>
+            <div class="row row-eq-height">
+              <div class="col-sm-6 col-md-6 col-lg-3 my-3 mb-md-4 my-md-0 px-3">
+                <a
+                  target="_blank"
+                  href="https://forum.italia.it"
+                  class="decoration-none text-decoration-none"
+                  title="Forum"
+                >
+                  <article class="d-flex flex-column align-items-start h-100 bg-white p-2 p-4 ">
+                    <figure class="d-flex w-100 align-items-center mb-0">
+                      <h4
+                        className="mb-3 flex-shrink-0"
+                        style={{ marginRight: "10px" }}
+                      >
+                        <MdForum />
+                      </h4>
+                      <h4>Forum</h4>
+                    </figure>
+                    <div class="decoration-none flex-grow-1 ms-5">
+                      <p>
+                        Visit <strong>forum.mts-technonatura.vercel.app</strong>{" "}
+                        to discuss the mts-technonatura website public digital
+                        services: API, software, security and more. Join the
+                        discussion!
+                      </p>
+                    </div>
+                  </article>
+                </a>
               </div>
-            </Row>
-          </Container>
-        </div>
+              <div class="col-sm-6 col-md-6 col-lg-3 my-3 mb-md-4 my-md-0 px-3">
+                <a
+                  target="_blank"
+                  href="https://forum.italia.it"
+                  class="decoration-none text-decoration-none"
+                  title="Forum"
+                >
+                  <article class="d-flex flex-column align-items-start h-100 bg-white p-2 p-4 ">
+                    <figure class="d-flex w-100 align-items-center mb-0">
+                      <h4
+                        className="mb-3 flex-shrink-0"
+                        style={{ marginRight: "10px" }}
+                      >
+                        <FaDiscord />
+                      </h4>
+                      <h4>Discord</h4>
+                    </figure>
+                    <div class="decoration-none flex-grow-1 ms-5">
+                      <p>
+                        Chat with other mts-technonatura developers community
+                        and make mts-technonatura websites better!
+                      </p>
+                    </div>
+                  </article>
+                </a>
+              </div>
+
+              <div class="col-sm-6 col-md-6 col-lg-3 my-3 mb-md-4 my-md-0 px-3">
+                <a
+                  target="_blank"
+                  href="https://forum.italia.it"
+                  class="decoration-none text-decoration-none"
+                  title="Forum"
+                >
+                  <article class="d-flex flex-column align-items-start h-100 bg-white p-2 p-4 ">
+                    <figure class="d-flex w-100 align-items-center mb-0">
+                      <h4
+                        className="mb-3 flex-shrink-0"
+                        style={{ marginRight: "10px" }}
+                      >
+                        <FaGithub />
+                      </h4>
+                      <h4>Our Github</h4>
+                    </figure>
+                    <div class="decoration-none flex-grow-1 ms-5">
+                      <p>
+                        We make various open source projects from various
+                        programming languages.
+                      </p>
+                    </div>
+                  </article>
+                </a>
+              </div>
+
+              <div class="col-sm-6 col-md-6 col-lg-3 my-3 mb-md-4 my-md-0 px-3">
+                <a
+                  target="_blank"
+                  href="https://docs.italia.it/"
+                  class="decoration-none"
+                  title="Docs"
+                >
+                  <article class="d-flex flex-column align-items-start h-100 bg-white p-2 p-4 ">
+                    <figure class="d-flex w-100 align-items-center">
+                      <img
+                        src="/assets/images/tools/Docs_Logo.svg"
+                        alt=""
+                        height="32"
+                      />
+                    </figure>
+                    <div class="decoration-none">
+                      <p>
+                        <strong>Docs Italia</strong> is the platform for
+                        publishing technical and legal documents, based on git
+                        and ReadTheDocs.
+                      </p>
+                    </div>
+                  </article>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
       </section>
     </main>
   </Layout>

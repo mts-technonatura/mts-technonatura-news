@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
     town: {
-      name: `Nome del Comune`,
-      tagLine: `Uno dei tanti Comuni d'Italia`,
-      address: 'Via Roma - 00100'
+      name: `MTs TechnoNatura News`,
+      tagLine: `News for mts-technonatura students`,
+      address: "Via Roma - 00100",
     },
     author: `@dej611`,
   },
@@ -34,4 +34,4 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ],
-}
+};

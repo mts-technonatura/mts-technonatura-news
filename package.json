@@ -8,9 +8,9 @@
     "Marco Liberati"
   ],
   "dependencies": {
-    "bootstrap-italia": "1.4.1",
-    "design-react-kit": "3.3.1",
-    "gatsby": "^2.18.18",
+    "bootstrap-italia": "latest",
+    "design-react-kit": "latest",
+    "gatsby": "latest",
     "gatsby-image": "^2.2.17",
     "gatsby-plugin-manifest": "^2.2.14",
     "gatsby-plugin-offline": "^2.2.10",
@@ -19,9 +19,10 @@
     "gatsby-source-filesystem": "^2.1.21",
     "gatsby-transformer-sharp": "^2.2.13",
     "prop-types": "^15.7.2",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "react-helmet": "^5.2.1",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-helmet": "latest",
+    "react-icons": "^4.2.0",
     "typeface-lora": "0.0.72",
     "typeface-roboto-mono": "0.0.75",
     "typeface-titillium-web": "0.0.72"
