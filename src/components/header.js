@@ -234,6 +234,7 @@ const NavHeader = ({ active, theme }) => {
                 },
               ].map(label => {
                 const isActive = label.link === active;
+               console.log(label.link, active);
                 return (
                   <NavItem active={isActive} key={label}>
                     <NavLink to={`/${label.link}`} active={isActive} tag={Link}>
