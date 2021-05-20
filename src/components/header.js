@@ -213,6 +213,11 @@ const NavHeader = ({ active, theme }) => {
             <Nav navbar>
               {[
                 {
+                  link: "",
+                  "en-uk": "Home",
+                  bahasa: "Utama",
+                },
+                {
                   link: "events",
                   "en-uk": "events",
                   bahasa: "acara",
