@@ -26,6 +26,7 @@ import {
   NavLink,
   HeaderBrand,
   UncontrolledDropdown,
+  Alert,
 } from "design-react-kit";
 
 function capitalize(str) {
@@ -294,13 +295,22 @@ const CompleteHeader = ({ location, sticky, theme, type, town }) => {
   const page = getSectionFromLocation(location);
   const { name, tagLine } = town;
   return (
-    <Headers sticky={!!sticky}>
-      <SlimTag theme={theme} />
-      <div className="it-nav-wrapper">
-        <CenterHeader theme={theme} townName={name} townTagLine={tagLine} />
-        <NavHeader theme={theme} active={location.pathname} />
+    <>
+      <div
+        class="alert alert-danger fade show"
+        role="alert"
+        style={{ marginBottom: "0px" }}
+      >
+        This website under construction, bugs may occur
       </div>
-    </Headers>
+      <Headers sticky={!!sticky}>
+        <SlimTag theme={theme} />
+        <div className="it-nav-wrapper">
+          <CenterHeader theme={theme} townName={name} townTagLine={tagLine} />
+          <NavHeader theme={theme} active={location.pathname} />
+        </div>
+      </Headers>
+    </>
   );
 };
 

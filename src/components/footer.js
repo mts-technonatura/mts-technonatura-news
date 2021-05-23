@@ -37,45 +37,43 @@ const Footer = ({ town }) => (
             <Col lg={3} md={3} sm={6} className="pb-2">
               <h4>
                 <Link to="#" title="Vai alla pagina: Amministrazione">
-                  Amministrazione
+                  MTs TechnoNatura Networks
                 </Link>
               </h4>
               <LinkList className="footer-list clearfix">
                 {[
-                  "Giunta e consiglio",
-                  "Aree di competenza",
-                  "Dipendenti",
-                  "Luoghi",
-                  "Associazioni e società partecipate",
-                ].map(label => (
+                  { title: "Main Website", link: "https://mt-tn.vercel.app" },
+                  {
+                    title: "Forum",
+                    link: "https://forum.mts-technonatura.vercel.app",
+                  },
+                  {
+                    title: "Dashboard",
+                    link:
+                      "https://dashboard.mts-technonatura.vercel.app/dashboard",
+                  },
+                ].map(network => (
                   <LinkListItem
-                    key={label}
-                    href="#"
-                    title={`Vai alla pagina: ${label}`}
+                    key={network.title}
+                    href={network.link}
+                    title={`MTs TechnoNatura Netwrok: ${network.title}`}
                   >
-                    {label}
+                    {network.title}
                   </LinkListItem>
                 ))}
               </LinkList>
             </Col>
             <Col lg={3} md={3} sm={6} className="pb-2">
               <h4>
-                <Link to="#" title="Vai alla pagina: Servizi">
-                  Servizi
+                <Link to="/categories" title="Vai alla pagina: Servizi">
+                  News Categories
                 </Link>
               </h4>
               <LinkList className="footer-list clearfix">
-                {[
-                  "Pagamenti",
-                  "Sostegno",
-                  "Domande e iscrizioni",
-                  "Segnalazioni",
-                  "Autorizzazioni e concessioni",
-                  "Certificati e dichiarazioni",
-                ].map(label => (
+                {["Developers", "General", "Quick News"].map(label => (
                   <LinkListItem
                     key={label}
-                    href="#"
+                    href={`/category/${label}`}
                     title={`Vai alla pagina: ${label}`}
                   >
                     {label}
@@ -104,12 +102,12 @@ const Footer = ({ town }) => (
             <Col lg={3} md={3} sm={6}>
               <h4>
                 <Link to="#" title="Vai alla pagina: Documenti">
-                  Documenti
+                  Follow us!
                 </Link>
               </h4>
               <LinkList className="footer-list clearfix">
                 {[
-                  "Progetti e attività",
+                  "Github",
                   "Delibere, determine e ordinanze",
                   "Bandi",
                   "Concorsi",
